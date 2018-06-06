@@ -80,4 +80,12 @@ module.exports = [
       './dom': 'jQuery',
     },
   }),
+  Object.assign({}, baseConf, {
+    entry: {
+      'shariff.standalone': './src/js/standalone/shariff.standalone'
+    },
+    externals: {
+      './dom': 'jQuery',
+    },
+  }),
 ]

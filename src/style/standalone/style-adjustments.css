@@ -1,0 +1,4 @@
+.shariff-standalone-icon {
+	/* font awesome icons are displayed as inline block, copy that to get a propper look  */
+	display: inline-block;
+}
