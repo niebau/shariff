@@ -3,8 +3,10 @@
 // require('babel-polyfill')
 
 const $ = require('./dom')
-const services = require('./services')
+const services = require('../services')
 const url = require('url')
+// include the shariff standalone mapping helper
+const standaloneMappings = require('./shariff.standalone.mappings')
 
 // Defaults may be overridden either by passing "options" to Shariff constructor
 // or by setting data attributes.
@@ -206,9 +208,14 @@ class Shariff {
           .text(this.getLocalized(service, 'shareText'))
         $shareLink.append($shareText)
       }
+      
+      // set the icon-font classes according to the class mappings
+      // provided in shariff.standalone.mappings
+      var standaloneClass = standaloneMappings.getStandaloneClass(service.name);
+      var standaloneBaseClass = standaloneMappings.getStandaloneBaseClass();
 
-      if (typeof service.faPrefix !== 'undefined' && typeof service.faName !== 'undefined') {
-        $shareLink.prepend($('<span/>').addClass(`${service.faPrefix} ${service.faName}`))
+      if (typeof standaloneClass !== 'undefined' && typeof standaloneClass !== 'undefined') {
+        $shareLink.prepend($('<span/>').addClass(`${standaloneBaseClass} ${standaloneClass}`))
       }
 
       if (service.popup) {
