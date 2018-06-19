@@ -1,9 +1,12 @@
-// import standalone icon font
+// import standalone icon font css provided by icomoon app
 @import (css) "style.css";
 
-// add some style adjustments to match font awesome styles
+// add some style adjustments to match font awesome look and feel
 @import (css) "style-adjustments.css";
 
-// Shariff
-@import (less) "shariff-standalone-layout";
-@import (less) "shariff-standalone-services";
+// import the original Shariff base less files
+@import (less) "../shariff-layout";
+@import (less) "../shariff-services";
+
+// extend Shariff base less font-awesome selectors
+@import (less) "shariff-standalone-extend";
